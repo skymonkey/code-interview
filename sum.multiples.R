@@ -9,7 +9,8 @@ sum.multiples <- function(x, y, limit = 1000){
 # Returns:
 #  The sum of all multiples of x and y which are < limit.
 
-  z <- seq(1:(limit - 1))
-  sum(z[z %% x == 0], z[z %% y == 0])
+  z <- seq(1:limit)
+  z <- union(z[z %% x == 0], z[z %% y == 0])
+  sum( z[z < limit])
 
 }
